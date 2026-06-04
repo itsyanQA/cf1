@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUserTodos } from "~/api/todos";
 import { queryKey } from "~/config/api/api.types";
-import { useSelectedUser } from "~/hooks/use-selected-user";
+import { useUserStore } from "~/store/user.store";
 
 export function useGetUserTodos() {
-  const selectedUser = useSelectedUser("selectedUser");
+  const selectedUser = useUserStore((s) => s.selectedUser);
 
   return useQuery({
     queryKey: [queryKey.getUserTodos, selectedUser?.id],

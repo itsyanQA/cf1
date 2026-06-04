@@ -1,9 +1,9 @@
-import { useSelectedUser } from "~/hooks/use-selected-user";
+import { useUserStore } from "~/store/user.store";
 import { TodosEmptyState } from "./todos-empty-state";
 import { TodosContent } from "./todos-content";
 
 export function Todos() {
-  const selectedUser = useSelectedUser("selectedUser");
+  const selectedUser = useUserStore((s) => s.selectedUser);
 
   if (!selectedUser) {
     return <TodosEmptyState />;

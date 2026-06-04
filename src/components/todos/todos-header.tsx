@@ -1,9 +1,9 @@
-import { useSelectedUser } from "~/hooks/use-selected-user";
+import { useUserStore } from "~/store/user.store";
 import { TodosFilter } from "./todos-filter";
 import styles from "./todos-header.module.css";
 
 export function TodosHeader() {
-  const selectedUser = useSelectedUser("selectedUser");
+  const selectedUser = useUserStore((s) => s.selectedUser);
 
   return (
     <div className={styles.header}>

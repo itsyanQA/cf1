@@ -1,13 +1,13 @@
 import type { User } from "./users.types";
-import { useSelectedUser } from "~/hooks/use-selected-user";
-import { useFilter } from "~/hooks/use-filter";
+import { useUserStore } from "~/store/user.store";
+import { useFilterStore } from "~/store/filter.store";
 import { pipe } from "fp-ts/lib/function";
 import * as O from "fp-ts/lib/Option";
 
 export function useUserSelection(user: User) {
-  const selectedUser = useSelectedUser("selectedUser");
-  const setSelectedUser = useSelectedUser("setSelectedUser");
-  const setHideCompleted = useFilter("setHideCompleted");
+  const selectedUser = useUserStore((s) => s.selectedUser);
+  const setSelectedUser = useUserStore((s) => s.setSelectedUser);
+  const setHideCompleted = useFilterStore((s) => s.setHideCompleted);
   const isSelected = pipe(
     selectedUser,
     O.fromNullable,
