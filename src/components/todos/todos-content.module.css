@@ -1,0 +1,18 @@
+.todosContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}

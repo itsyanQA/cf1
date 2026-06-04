@@ -1,0 +1,11 @@
+.todoItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: flex-start;
+}
+
+.todoItemCompleted {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}

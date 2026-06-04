@@ -1,0 +1,12 @@
+.usersList {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.usersNotFound {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
