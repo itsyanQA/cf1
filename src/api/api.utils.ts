@@ -35,3 +35,18 @@ export function validateResponse<TResponse extends object>(response: TResponse, 
     TE.mapLeft((errors) => new Error(`Validation failed: ${JSON.stringify(errors)}`)),
   );
 }
+
+export function fetchAndValidate<TResponse extends object>(
+  endpoint: Endpoint,
+  codec: t.Type<TResponse>,
+  fetchOptions: ApiFetchOptions = {},
+): Promise<TResponse> {
+  return pipe(
+    apiFetch<TResponse>(endpoint, fetchOptions),
+    TE.chain((res) => validateResponse(res, codec)),
+    TE.fold(
+      (err) => () => Promise.reject(err),
+      (data) => () => Promise.resolve(data),
+    ),
+  )();
+}

@@ -1,15 +1,6 @@
 import { UsersCodec, type UsersResponse } from "~/components/users/users.types";
-import { apiFetch, endpoint, validateResponse } from "./api.utils";
-import { pipe } from "fp-ts/lib/function";
-import * as TE from "fp-ts/lib/TaskEither";
+import { endpoint, fetchAndValidate } from "./api.utils";
 
-export async function getUsers() {
-  return pipe(
-    apiFetch<UsersResponse>(endpoint.users),
-    TE.chain((res) => validateResponse(res, UsersCodec)),
-    TE.fold(
-      (err) => () => Promise.reject(err),
-      (users) => () => Promise.resolve(users),
-    ),
-  )();
+export function getUsers(): Promise<UsersResponse> {
+  return fetchAndValidate(endpoint.users, UsersCodec);
 }
