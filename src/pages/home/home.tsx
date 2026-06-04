@@ -8,12 +8,8 @@ export function Home() {
     <div className={styles.home}>
       <Header />
       <div className={styles.content}>
-        <section className={styles.users}>
-          <Users />
-        </section>
-        <section className={styles.todos}>
-          <Todos />
-        </section>
+        <Users />
+        <Todos />
       </div>
     </div>
   );
