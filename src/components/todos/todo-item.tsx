@@ -10,9 +10,7 @@ export function TodoItem({ todo }: Props) {
   const { completed, title } = todo;
 
   return (
-    <li
-      className={`${styles.todoItem} ${completed ? `${styles.todoItemCompleted}` : ""}`}
-    >
+    <li className={`${styles.todoItem} ${completed ? `${styles.todoItemCompleted}` : ""}`}>
       <Checkbox checked={completed} disabled />
       <span className={styles.todoTitle}>{title}</span>
     </li>

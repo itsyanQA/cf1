@@ -13,9 +13,7 @@ export function UserCard({ user }: Props) {
   const buttonText = isSelected ? "Hide TODOs" : "Show TODOs";
 
   return (
-    <li
-      className={`${styles.userCard} ${isSelected ? styles.userCardSelected : ""}`}
-    >
+    <li className={`${styles.userCard} ${isSelected ? styles.userCardSelected : ""}`}>
       <div className={styles.userInfo}>
         <span className={styles.username}>{username}</span>
         <span className={styles.name}>{name}</span>
