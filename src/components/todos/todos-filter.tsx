@@ -1,16 +1,14 @@
 import { Checkbox } from "~/components/checkbox/checkbox";
-import { useFilterStore } from "~/store/filter.store";
+import { useFilter } from "~/hooks/use-filter";
 import styles from "./todos-filter.module.css";
 
 export function TodosFilter() {
-  const { hideCompleted, setHideCompleted } = useFilterStore();
+  const hideCompleted = useFilter("hideCompleted");
+  const setHideCompleted = useFilter("setHideCompleted");
 
   return (
     <label className={styles.filter}>
-      <Checkbox
-        checked={hideCompleted}
-        onChange={(e) => setHideCompleted(e.target.checked)}
-      />
+      <Checkbox checked={hideCompleted} onChange={(e) => setHideCompleted(e.target.checked)} />
       Hide completed
     </label>
   );

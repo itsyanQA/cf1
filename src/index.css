@@ -1,31 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-  /* Backgrounds */
   --bg: #0f1115;
-  --surface: #111827; /* cards, panels */
-  --surface-2: #1f2937; /* hover / elevated surfaces */
-
-  /* Borders */
+  --surface: #111827;
   --border: #1e2736;
-
-  /* Text */
   --text: #e5e7eb;
   --text-muted: #6b7490;
-
-  /* Accent */
   --primary: #4f7cff;
   --primary-hover: #3b6ef0;
   --primary-subtle: rgba(79, 124, 255, 0.12);
-  --muted-foreground: #6b7490;
-
-  /* Status */
-  --success: #22c55e;
   --danger: #ef4444;
-  --warning: #f59e0b;
-
-  /* UI extras */
-  --shadow: rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -42,13 +26,4 @@ body {
 
 li {
   list-style-type: none;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

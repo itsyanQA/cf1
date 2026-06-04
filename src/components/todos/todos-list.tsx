@@ -1,16 +1,13 @@
 import styles from "./todos-list.module.css";
 import { TodoItem } from "./todo-item";
-import { useGetUserTodos } from "./use-get-user-todos";
-import { useFilterStore } from "~/store/filter.store";
+import { ErrorText } from "../error-text/error-text";
+import { useTodos } from "./use-todos";
 
 export function TodosList() {
-  const { data } = useGetUserTodos();
-  const hideCompleted = useFilterStore((s) => s.hideCompleted);
-
-  const todos = hideCompleted ? data?.filter((t) => !t.completed) : data;
+  const { todos } = useTodos();
 
   if (!todos?.length) {
-    return <div>No TODOs found.</div>;
+    return <ErrorText text="No TODOs found" />;
   }
 
   return (

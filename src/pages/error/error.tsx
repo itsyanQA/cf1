@@ -1,17 +1,28 @@
+import styles from "./Error.module.css";
 import { useRouteError, isRouteErrorResponse, Link } from "react-router";
+import { getErrorMessage } from "../not-found/not-found.utils";
 
 export function Error() {
-  const error = useRouteError();
-  const message = isRouteErrorResponse(error)
-    ? error.statusText
-    : error instanceof Error
-      ? error.message
-      : "Unexpected error";
+  const error: unknown = useRouteError();
+
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div className={styles.errorContainer}>
+        <h1>
+          {error.status} — {error.statusText}
+        </h1>
+        <p>{error.data?.message || "An unexpected error occurred."}</p>
+        <Link to="/">Go home</Link>
+      </div>
+    );
+  }
+
+  const errorMessage = getErrorMessage(error);
 
   return (
-    <div>
+    <div className={styles.errorContainer}>
       <h1>Something went wrong</h1>
-      <p>{message}</p>
+      <p>{errorMessage}</p>
       <Link to="/">Go home</Link>
     </div>
   );

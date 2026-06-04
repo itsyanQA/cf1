@@ -1,11 +1,15 @@
 .todoItem {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    align-self: flex-start;
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-.todoItemCompleted {
-    text-decoration: line-through;
-    color: var(--text-muted);
+.todoTitle {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.todoItemCompleted .todoTitle {
+  color: var(--text-muted);
+  text-decoration: line-through;
 }

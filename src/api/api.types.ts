@@ -1,7 +1,8 @@
-import type { Todo } from "~/components/todos/todos.types";
+import type { endpoint } from "./api.utils";
 
-export type GetUserTodosRequest = {
-  userId: string;
+export type ApiFetchOptions = Omit<RequestInit, "body"> & {
+  params?: Record<string, string>;
+  body?: unknown;
 };
 
-export type GetUserTodosResponse = Array<Todo>;
+export type Endpoint = (typeof endpoint)[keyof typeof endpoint];

@@ -1,10 +1,9 @@
-import { useStore } from "zustand/react";
-import { useUserStore } from "~/store/user.store";
+import { useSelectedUser } from "~/hooks/use-selected-user";
 import { TodosFilter } from "./todos-filter";
-import styles from "./todos-content.module.css";
+import styles from "./todos-header.module.css";
 
 export function TodosHeader() {
-  const selectedUser = useStore(useUserStore, (s) => s.selectedUser);
+  const selectedUser = useSelectedUser("selectedUser");
 
   return (
     <div className={styles.header}>
