@@ -1,4 +1,4 @@
-import styles from "./text.module.css";
+import styles from "./error-text.module.css";
 
 type Props = {
   text: string;
