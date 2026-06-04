@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 import type { User } from "~/components/users/users.types";
 
 type UserStore = {
@@ -13,6 +13,6 @@ export const useUserStore = create<UserStore>()(
       selectedUser: null,
       setSelectedUser: (user) => set({ selectedUser: user }),
     }),
-    { name: "user-store" },
+    { name: "user-store", storage: createJSONStorage(() => sessionStorage) },
   ),
 );

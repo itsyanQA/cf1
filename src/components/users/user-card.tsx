@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function UserCard({ user }: Props) {
-  const { username, name } = user || {};
+  const { username, name } = user;
   const { isSelected, handleSelectUser } = useUserSelection(user);
   const buttonText = isSelected ? "Hide TODOs" : "Show TODOs";
 

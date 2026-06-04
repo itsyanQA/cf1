@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 type FilterStore = {
   hideCompleted: boolean;
@@ -12,6 +12,6 @@ export const useFilterStore = create<FilterStore>()(
       hideCompleted: false,
       setHideCompleted: (value) => set({ hideCompleted: value }),
     }),
-    { name: "filter-store" },
+    { name: "filter-store", storage: createJSONStorage(() => sessionStorage) },
   ),
 );

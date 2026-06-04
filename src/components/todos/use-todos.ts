@@ -6,8 +6,8 @@ import { getUncompletedTodos } from "./todos-utils";
 export function useTodos() {
   const { data } = useGetUserTodos();
   const hideCompleted = useFilterStore((s) => s.hideCompleted);
-
   const todos = hideCompleted ? pipe(data, getUncompletedTodos) : data;
+  const isFilteredEmpty = hideCompleted && !todos?.length && !!data?.length;
 
-  return { todos };
+  return { todos, isFilteredEmpty };
 }

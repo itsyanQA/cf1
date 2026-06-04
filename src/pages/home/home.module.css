@@ -7,10 +7,26 @@
 
 .content {
   width: 100%;
+  max-width: 1200px;
   display: flex;
   gap: 30px;
-  max-width: 1200px;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+}
+
+.users {
+  flex-basis: 40%;
+}
+
+.todos {
+  flex-basis: 60%;
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .users,
+  .todos {
+    flex-basis: unset;
+  }
 }

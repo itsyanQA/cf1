@@ -5,10 +5,10 @@ import { TodosList } from "./todos-list";
 import styles from "./todos-content.module.css";
 
 export function TodosContent() {
-  const { isPending, isError } = useGetUserTodos();
+  const { isPending, isError, refetch } = useGetUserTodos();
 
   return (
-    <View isPending={isPending} isError={isError}>
+    <View isPending={isPending} isError={isError} onRetry={refetch}>
       <div className={styles.todosContent}>
         <TodosHeader />
         <TodosList />

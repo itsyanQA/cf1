@@ -1,4 +1,4 @@
-import styles from "./Error.module.css";
+import styles from "./error.module.css";
 import { useRouteError, isRouteErrorResponse, Link } from "react-router";
 import { getErrorMessage } from "../not-found/not-found.utils";
 import { routes } from "~/config/routes/routes";

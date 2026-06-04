@@ -9,5 +9,6 @@ export function useGetUserTodos() {
   return useQuery({
     queryKey: [queryKey.getUserTodos, selectedUser?.id],
     queryFn: () => getUserTodos({ userId: String(selectedUser?.id) }),
+    enabled: !!selectedUser?.id,
   });
 }

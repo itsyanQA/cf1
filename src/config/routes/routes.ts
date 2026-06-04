@@ -1,6 +1,5 @@
 export const routes = {
   home: "/",
-  error: "/error",
   notFound: "*",
 } as const;
 

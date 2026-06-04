@@ -1,4 +1,4 @@
-import { ErrorText } from "~/components/error-text/error-text";
+import { EmptyState } from "~/components/empty-state/empty-state";
 import { UserCard } from "./user-card";
 import styles from "./users-list.module.css";
 import type { User } from "./users.types";
@@ -9,14 +9,14 @@ type Props = {
 
 export function UsersList({ users }: Props) {
   if (!users || !users?.length) {
-    return <ErrorText text="No users found." />;
+    return <EmptyState title="No users found." />;
   }
 
   return (
-    <div className={styles.usersList}>
+    <ul className={styles.usersList}>
       {users.map((user) => (
         <UserCard user={user} key={user.id} />
       ))}
-    </div>
+    </ul>
   );
 }
